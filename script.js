@@ -1,135 +1,89 @@
-// ตั้งค่า link หลังจากดาวน์โหลดเสร็จ
-let link1 = "https://s.shopee.co.th/2B1jiJVvRR";  // ลิงก์แรก (เปิดแท็บใหม่)
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ศูนย์ดาวน์โหลดไฟล์</title>
 
-const files = [
-  // Golem
-  { name: 'Hay Golem [BP] v1.1.0.mcpack', url: 'addon/golem/Hay Golem [BP] v1.1.0.mcpack' },
-  { name: 'Hay Golem [RP] v1.1.0.mcpack', url: 'addon/golem/Hay Golem [RP] v1.1.0.mcpack' },
+  <!-- Bootstrap & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.9.1/dist/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
-  // Magic
-  { name: 'A Magic Way Behavior v1.5.mcpack', url: 'addon/magic/A Magic Way Behavior v1.5 (1).mcpack' },
-  { name: 'A Magic Way Resource v1.5.mcpack', url: 'addon/magic/A Magic Way Resource v1.5.mcpack' },
+</head>
+<body>
 
-  // Village
-  { name: 'CircularHotbar-210425.mcpack', url: 'addon/village/CircularHotbar-210425.mcpack' },
-  { name: 'Ruins_Addon_1.2.9.mcaddon', url: 'addon/village/Ruins_Addon_1.2.9.mcaddon' }
-];
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#"><i class="fas fa-download me-2"></i>ดาวน์โหลด</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"><i class="fas fa-home me-1"></i> หน้าแรก</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#fileSection"><i class="fas fa-folder-open me-1"></i> ไฟล์</a>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link toggle-switch" onclick="toggleDarkMode()">
+            <i class="fas fa-moon" id="modeIcon"></i>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-let allSelected = false;
+<!-- Main Content -->
+<div class="container py-5" id="fileSection">
+  <div class="card shadow-lg">
+    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+      <h4 class="mb-0"><i class="fas fa-folder-open me-2"></i>เลือกและดาวน์โหลดไฟล์</h4>
+      <span id="selectedCount" class="badge bg-warning text-dark">เลือก 0 ไฟล์</span>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <input type="text" id="searchInput" class="form-control" placeholder="🔍 ค้นหาไฟล์..." onkeyup="renderFiles(this.value)">
+      </div>
+      <div class="d-flex justify-content-between mb-3">
+        <button class="btn btn-outline-secondary btn-sm" onclick="toggleSelectAll()">
+          <i class="fas fa-check-double me-1"></i> เลือก/ยกเลิก ทั้งหมด
+        </button>
+      </div>
+      <div id="fileList" class="list-group mb-3"></div>
+      <div class="d-grid">
+        <button onclick="downloadSelected()" class="btn btn-danger">
+          <i class="fas fa-file-download me-1"></i> ดาวน์โหลดไฟล์ที่เลือก
+        </button>
+        <button onclick="refreshPage()" class="btn btn-secondary">
+          🔄 รีเฟรชหน้าเว็บ
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
-// สร้างรายการไฟล์
-function renderFiles(filter = '') {
-  const list = document.getElementById('fileList');
-  list.innerHTML = '';
-  files
-    .filter(file => file.name.toLowerCase().includes(filter.toLowerCase()))
-    .forEach((file, index) => {
-      const item = document.createElement('div');
-      item.className = 'list-group-item';
-      item.innerHTML = `
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="file-${index}" value="${file.url}" data-name="${file.name}" onchange="updateSelectedCount()">
-          <label class="form-check-label" for="file-${index}">
-            <i class="fas fa-file-alt me-2 text-primary"></i>${file.name}
-          </label>
-        </div>
-      `;
-      list.appendChild(item);
-    });
-  updateSelectedCount();
-}
+<!-- Footer -->
+<footer class="mt-5">
+  <div class="container">
+    <p class="footer-text text-center">&copy; 2025 ศูนย์ดาวน์โหลด - Made with ❤️</p>
+  </div>
+</footer>
 
-// นับจำนวนไฟล์ที่เลือก
-function updateSelectedCount() {
-  const selected = document.querySelectorAll('#fileList input[type="checkbox"]:checked').length;
-  document.getElementById('selectedCount').innerText = `เลือก ${selected} ไฟล์`;
-}
-
-// เลือก/ไม่เลือกทั้งหมด
-function toggleSelectAll() {
-  const checkboxes = document.querySelectorAll('#fileList input[type="checkbox"]');
-  allSelected = !allSelected;
-  checkboxes.forEach(checkbox => {
-    checkbox.checked = allSelected;
-  });
-  updateSelectedCount();
-}
-
-// ดาวน์โหลดไฟล์ที่เลือก
-async function downloadSelected() {
-  const selected = document.querySelectorAll('#fileList input[type="checkbox"]:checked');
-  
-  if (selected.length === 0) {
-    return Swal.fire({
-      icon: 'warning',
-      title: 'ยังไม่ได้เลือกไฟล์',
-      text: 'กรุณาเลือกไฟล์อย่างน้อย 1 รายการ',
-      confirmButtonText: 'ตกลง'
-    });
-  }
-
-  const zip = new JSZip();
-
-  // ดาวน์โหลดไฟล์แต่ละไฟล์
-  for (const checkbox of selected) {
-    const url = checkbox.value;
-    const filename = checkbox.getAttribute('data-name');
-
-    try {
-      const response = await fetch(url);
-      const blob = await response.blob();
-      zip.file(filename, blob);
-    } catch (error) {
-      console.error(`Error downloading ${filename}:`, error);
-    }
-  }
-
-  // สร้างไฟล์ zip
-  const zipBlob = await zip.generateAsync({ type: 'blob' });
-
-  // บันทึก zip ลงเครื่อง
-  saveAs(zipBlob, 'selected-files.zip');
-
-  // เสร็จแล้วเปิดลิงก์
-  if (link1) {
-    setTimeout(() => {   // ดีเลย์เล็กน้อยเพื่อให้ saveAs ทำงานเสร็จ
-      window.open(link1, "_blank");
-    }, 50);  // 0.5 วินาที
-  }
-
-  // เคลียร์ตัวเลือก
-  document.getElementById('searchInput').value = '';
-  renderFiles();
-}
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 
 
-// โหมดกลางวัน/กลางคืน
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-  const icon = document.getElementById('modeIcon');
-  if (document.body.classList.contains('dark-mode')) {
-    icon.classList.replace('fa-moon', 'fa-sun');
-    localStorage.setItem('theme', 'dark');
-  } else {
-    icon.classList.replace('fa-sun', 'fa-moon');
-    localStorage.setItem('theme', 'light');
-  }
-}
+</body>
+</html>
 
-// กู้สถานะธีม
-function restoreDarkMode() {
-  const theme = localStorage.getItem('theme');
-  if (theme === 'dark') {
-    document.body.classList.add('dark-mode');
-    const icon = document.getElementById('modeIcon');
-    if (icon) {
-      icon.classList.replace('fa-moon', 'fa-sun');
-    }
-  }
-}
 
-// เริ่มต้นเมื่อโหลดหน้าเสร็จ
-document.addEventListener('DOMContentLoaded', () => {
-  restoreDarkMode();
-  renderFiles();
-});
+
