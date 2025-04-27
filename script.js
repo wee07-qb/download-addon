@@ -70,6 +70,17 @@ async function downloadSelected() {
 
   const zip = new JSZip();
 
+  // แสดง SweetAlert แจ้งเตือนว่ากำลังโหลดไฟล์
+  Swal.fire({
+    title: 'กำลังสร้างไฟล์...',
+    text: 'กรุณารอสักครู่',
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
+
   for (const checkbox of selected) {
     const url = checkbox.value;
     const filename = checkbox.getAttribute('data-name');
@@ -91,12 +102,21 @@ async function downloadSelected() {
   // ดาวน์โหลดไฟล์ ZIP ที่มีชื่อสุ่ม
   saveAs(zipBlob, randomName);
 
+  // ปิด SweetAlert หลังจากดาวน์โหลดเสร็จ
+  Swal.fire({
+    icon: 'success',
+    title: 'ดาวน์โหลดเสร็จสิ้น',
+    text: 'ไฟล์ที่คุณเลือกจะถูกดาวน์โหลด',
+    confirmButtonText: 'ตกลง'
+  });
+
   if (link1) {
     setTimeout(() => {
       window.open(link1, "_blank");
     }, 500); // เปิดลิงก์หลังจากโหลดเสร็จ
   }
 }
+
 
 
 // ✅ ไม่ล้างตัวเลือก เพื่อให้ดาวน์โหลดซ้ำได้
