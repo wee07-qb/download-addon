@@ -1,0 +1,138 @@
+/* Base Styles for Light and Dark Mode */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ขยายให้ body เต็มหน้าจอ */
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+  }
+  
+  /* Card Style for Video */
+  .video-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .video-card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .video-card .card-body {
+    text-align: center;
+  }
+  
+  .video-card .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .video-card .card-text {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .video-card button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  /* Dark Mode Styles for Card */
+  body.dark-mode .video-card {
+    background-color: #333;
+    border-color: #444;
+  }
+  body.dark-mode .card-body {
+    color: white;
+  }
+  
+  body.dark-mode .video-card:hover {
+    box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.1);
+  }
+  
+  body.dark-mode .video-card button {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+  /* Navbar Dark Mode */
+  body.dark-mode .navbar {
+    background-color: #212529;
+  }
+  
+  body.dark-mode .navbar-nav .nav-link {
+    color: #bbb;
+  }
+  
+  body.dark-mode .navbar-nav .nav-link:hover {
+    color: #fff;
+  }
+  
+  /* Footer */
+  footer {
+    margin-top: auto; /* ให้ footer ขยับไปที่ด้านล่างสุด */
+    background-color: #f8f9fa;
+    color: #555;
+    padding: 1rem;
+    text-align: center; /* ชิดกลาง */
+    width: 100%;
+    /* รองรับการแสดงผลแบบ responsive */
+    box-sizing: border-box;
+  }
+  
+  /* Dark Mode Styles */
+  body.dark-mode footer {
+    background-color: #212529;
+    color: #bbb;
+  }
+  
+  /* Card Style for Video */
+  .video-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px;
+  }
+  
+  .video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .video-card {
+      margin-bottom: 10px;
+    }
+    
+    .video-card .card-body {
+      padding: 1rem;
+    }
+  }
+  
+  /* Ensure footer is always at the bottom */
+  @media (min-width: 1024px) {
+    footer {
+      position: relative;
+      padding: 1rem;
+    }
+  }

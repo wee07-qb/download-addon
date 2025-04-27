@@ -1,0 +1,73 @@
+body {
+    background-color: var(--bs-light);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+  }
+  
+  .dark-mode .navbar,
+  .dark-mode .card {
+    background-color: #1f1f1f !important;
+  }
+  
+  .dark-mode .form-control,
+  .dark-mode .list-group-item {
+    background-color: #2b2b2b;
+    color: #fff;
+  }
+  
+  .dark-mode .btn-outline-secondary {
+    color: #fff;
+    border-color: #999;
+  }
+  
+  .toggle-switch {
+    cursor: pointer;
+  }
+  
+  /* Style for Category Cards */
+.category-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .category-card i {
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+  
+  .category-card:hover i {
+    color: #0056b3;
+  }
+  
+  .category-card h4 {
+    font-size: 1.2rem;
+    margin: 15px 0;
+  }
+  
+  .category-card p {
+    color: #777;
+  }
+  
+  /* Responsive Layout for Cards */
+  @media (max-width: 767px) {
+    .category-card {
+      padding: 15px;
+    }
+  
+    .category-card i {
+      font-size: 2.5rem;
+    }
+  }
+  
