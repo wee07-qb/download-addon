@@ -84,7 +84,12 @@ async function downloadSelected() {
   }
 
   const zipBlob = await zip.generateAsync({ type: 'blob' });
-  saveAs(zipBlob, 'selected-files.zip');
+
+  // สร้างชื่อไฟล์ ZIP ที่สุ่ม
+  const randomName = 'download-' + Date.now() + '.zip'; // ใช้เวลาปัจจุบัน (milliseconds) เป็นตัวสุ่ม
+
+  // ดาวน์โหลดไฟล์ ZIP ที่มีชื่อสุ่ม
+  saveAs(zipBlob, randomName);
 
   if (link1) {
     setTimeout(() => {
@@ -92,6 +97,7 @@ async function downloadSelected() {
     }, 500); // เปิดลิงก์หลังจากโหลดเสร็จ
   }
 }
+
 
 // ✅ ไม่ล้างตัวเลือก เพื่อให้ดาวน์โหลดซ้ำได้
 
