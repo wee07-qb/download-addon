@@ -2,7 +2,7 @@ let link1 = "https://s.shopee.co.th/2B1jiJVvRR";  // ลิงก์แรก (�
 
 const files = [
     // Golem
-    { name: 'อนิเมชั่น1.4', url: 'download.mcpack' },
+    { name: 'download.mcpack', url: 'download.mcpack' },
   ];
 
 
