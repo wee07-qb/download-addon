@@ -3,14 +3,14 @@ let link2 = "https://www.lazada.co.th/products/2022-i5661814104-s24147192009.htm
 
 
  files = [
-    { name: '[BP] Instant Structures v7 BONY162.mcpack', url: 'addon/survival/[BP] Instant Structures v7 BONY162.mcpack' },
-    { name: '[RP] Instant Structures v7 BONY162.mcpack', url: 'addon/survival/[RP] Instant Structures v7 BONY162.mcpack' },
-    { name: 'AddVenture 1.4 .mcaddon', url: 'addon/survival/AddVenture 1.4 .mcaddon' },
-    { name: 'Fabulous-Furnished-1-7-5s.mcaddon', url: 'addon/survival/Fabulous-Furnished-1-7-5s.mcaddon' },
-    { name: 'MoreSkins.mcaddon.zip', url: 'addon/survival/MoreSkins.mcaddon.zip' },
-    { name: "NinjaHamster's Book Reader v1.0.1.mcaddon", url: 'addon/survival/NinjaHamster\'s Book Reader v1.0.1.mcaddon' },
-    { name: 'slasher_sword_1.0.1.mcaddon', url: 'addon/survival/slasher_sword_1.0.1.mcaddon' },
-    { name: 'Streak Up!.mcaddon', url: 'addon/survival/Streak Up!.mcaddon' }
+    { name: '[BP] Instant Structures v7 BONY162.mcpack', url: 'addon/surviral/[BP] Instant Structures v7 BONY162.mcpack' },
+    { name: '[RP] Instant Structures v7 BONY162.mcpack', url: 'addon/surviral/[RP] Instant Structures v7 BONY162.mcpack' },
+    { name: 'AddVenture 1.4 .mcaddon', url: 'addon/surviral/AddVenture 1.4 .mcaddon' },
+    { name: 'Fabulous-Furnished-1-7-5s.mcaddon', url: 'addon/surviral/Fabulous-Furnished-1-7-5s.mcaddon' },
+    { name: 'MoreSkins.mcaddon.zip', url: 'addon/surviral/MoreSkins.mcaddon.zip' },
+    { name: "NinjaHamster's Book Reader v1.0.1.mcaddon", url: 'addon/surviral/NinjaHamster\'s Book Reader v1.0.1.mcaddon' },
+    { name: 'slasher_sword_1.0.1.mcaddon', url: 'addon/surviral/slasher_sword_1.0.1.mcaddon' },
+    { name: 'Streak Up!.mcaddon', url: 'addon/surviral/Streak Up!.mcaddon' }
   ];
 
 
