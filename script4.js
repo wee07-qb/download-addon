@@ -3,7 +3,7 @@ let link2 = "https://www.lazada.co.th/products/2022-i5661814104-s24147192009.htm
 
 
 const files = [
-  { name: '[BP] Instant Structures v7 BONY162', url: '[BP] Instant Structures v7 BONY162.mcpack' },
+  { name: '[BP] Instant Structures v7 BONY162', url: 'addon/survival/[BP] Instant Structures v7 BONY162.mcpack' },
   { name: '[RP] Instant Structures v7 BONY162', url: '[RP] Instant Structures v7 BONY162.mcpack' },
   { name: 'AddVenture 1.4', url: 'AddVenture 1.4.mcaddon' },
   { name: 'Fabulous-Furnished-1-7-5s', url: 'Fabulous-Furnished-1-7-5s.mcaddon' },
