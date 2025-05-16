@@ -1,11 +1,10 @@
-let link1 = "https://s.shopee.co.th/2B1jiJVvRR";  // ลิงก์ Shopee
-let link2 = "https://www.lazada.co.th/products/2022-i5661814104-s24147192009.html?trafficFrom=17449020_303586&laz_trackid=2:mm_321251106_287552583_2244402583:clkgikqsm1ir5bco0e9r4o&mkttid=clkgikqsm1ir5bco0e9r4o";  // ลิงก์ Lazada
-
+let link1 = "https://s.shopee.co.th/2B1jiJVvRR";
+let link2 = "https://www.lazada.co.th/products/2022-i5661814104-s24147192009.html?trafficFrom=17449020_303586&laz_trackid=2:mm_321251106_287552583_2244402583:clkgikqsm1ir5bco0e9r4o&mkttid=clkgikqsm1ir5bco0e9r4o";
 
 const files = [
   { name: '[BP] Instant Structures v7 BONY162', url: '[BP] Instant Structures v7 BONY162.mcpack' },
   { name: '[RP] Instant Structures v7 BONY162', url: '[RP] Instant Structures v7 BONY162.mcpack' },
-  { name: 'AddVenture 1.4', url: 'AddVenture 1.4 .mcaddon' },
+  { name: 'AddVenture 1.4', url: 'AddVenture 1.4.mcaddon' },
   { name: 'Fabulous-Furnished-1-7-5s', url: 'Fabulous-Furnished-1-7-5s.mcaddon' },
   { name: 'MoreSkins', url: 'MoreSkins.mcaddon.zip' },
   { name: "NinjaHamster's Book Reader v1.0.1", url: "NinjaHamster's Book Reader v1.0.1.mcaddon" },
@@ -13,9 +12,23 @@ const files = [
   { name: 'Streak Up!', url: 'Streak Up!.mcaddon' },
 ];
 
-
-
 let allSelected = false;
+
+// ฟังก์ชันล้างชื่อไฟล์และเติมนามสกุลให้เหมาะสม
+function getSafeFilename(name) {
+  let ext = '';
+  if (name.startsWith('[BP]') || name.startsWith('[RP]')) {
+    ext = '.mcpack';
+  } else {
+    ext = '.mcaddon';
+  }
+
+  if (!/\.[a-z0-9]+$/i.test(name)) {
+    name += ext;
+  }
+
+  return name.replace(/[^\w\s.-]/gi, '_').trim();
+}
 
 // สร้างรายการไฟล์
 function renderFiles(filter = '') {
@@ -70,7 +83,6 @@ async function downloadSelected() {
 
   const zip = new JSZip();
 
-  // แสดง SweetAlert แจ้งเตือนว่ากำลังโหลดไฟล์
   Swal.fire({
     title: 'กำลังสร้างไฟล์...',
     text: 'กรุณารอสักครู่',
@@ -83,55 +95,45 @@ async function downloadSelected() {
 
   for (const checkbox of selected) {
     const url = checkbox.value;
-    const filename = checkbox.getAttribute('data-name');
+    const rawName = checkbox.getAttribute('data-name');
+    const safeName = getSafeFilename(rawName);
 
     try {
       const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const blob = await response.blob();
-      zip.file(filename, blob);
+      zip.file(safeName, blob);
     } catch (error) {
-      console.error(`Error downloading ${filename}:`, error);
+      console.error(`Error downloading ${safeName}:`, error);
     }
   }
 
   const zipBlob = await zip.generateAsync({ type: 'blob' });
-
-  // สร้างชื่อไฟล์ ZIP ที่สุ่ม
-  const randomName = 'download-' + Date.now() + '.zip'; // ใช้เวลาปัจจุบัน (milliseconds) เป็นตัวสุ่ม
-
-  // ดาวน์โหลดไฟล์ ZIP ที่มีชื่อสุ่ม
+  const randomName = 'download-' + Date.now() + '.zip';
   saveAs(zipBlob, randomName);
 
-  // ปิด SweetAlert หลังจากดาวน์โหลดเสร็จ
- // ปิด SweetAlert หลังจากดาวน์โหลดเสร็จ
-Swal.fire({
-  icon: 'success',
-  title: 'ดาวน์โหลดเสร็จสิ้น',
-  text: 'ไฟล์ที่คุณเลือกจะถูกดาวน์โหลด',
-  confirmButtonText: 'ตกลง'
-})
+  Swal.fire({
+    icon: 'success',
+    title: 'ดาวน์โหลดเสร็จสิ้น',
+    text: 'ไฟล์ที่คุณเลือกจะถูกดาวน์โหลด',
+    confirmButtonText: 'ตกลง'
+  });
 
-if (link1) {
-  setTimeout(() => {
-    window.open(link1, "_blank");
-  }, 500);
+  // เปิดลิงก์ Shopee และ Lazada
+  if (link1) {
+    setTimeout(() => {
+      window.open(link1, "_blank");
+    }, 500);
+  }
+
+  if (link2) {
+    setTimeout(() => {
+      window.location.href = link2;
+    }, 500);
+  }
 }
 
-if (link2) {
-  setTimeout(() => {
-    window.location.href = link2;
-  }, 500); // เปิดอันที่ 2 ช้ากว่าเล็กน้อย
-}
-
-
-
-}
-
-
-
-// ✅ ไม่ล้างตัวเลือก เพื่อให้ดาวน์โหลดซ้ำได้
-
-// รีเฟรชหน้าเว็บ พร้อม Popup โหลดสวย ๆ (แยกออกมา)
+// รีเฟรชหน้าเว็บ
 function refreshPage() {
   Swal.fire({
     title: 'กำลังโหลดใหม่...',
@@ -145,7 +147,7 @@ function refreshPage() {
 
   setTimeout(() => {
     location.reload();
-  }, 1500); // รอ 1.5 วิ ก่อนรีเฟรชจริง
+  }, 1500);
 }
 
 // โหมดกลางวัน/กลางคืน
