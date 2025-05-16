@@ -5,7 +5,7 @@ let link2 = "https://www.lazada.co.th/products/2022-i5661814104-s24147192009.htm
  files = [
     { name: '[BP] Instant Structures v7 BONY162.mcpack', url: 'addon/surviral/[BP] Instant Structures v7 BONY162.mcpack' },
     { name: '[RP] Instant Structures v7 BONY162.mcpack', url: 'addon/surviral/[RP] Instant Structures v7 BONY162.mcpack' },
-    { name: 'AddVenture 1.4 .mcaddon', url: 'addon/surviral/AddVenture 1.4 .mcaddon' },
+    { name: 'AddVenture 1.4 .mcaddon', url: 'addon/surviral/AddVenture 1.4.mcaddon' },
     { name: 'Fabulous-Furnished-1-7-5s.mcaddon', url: 'addon/surviral/Fabulous-Furnished-1-7-5s.mcaddon' },
     { name: 'MoreSkins.mcaddon.zip', url: 'addon/surviral/MoreSkins.mcaddon.zip' },
     { name: "NinjaHamster's Book Reader v1.0.1.mcaddon", url: 'addon/surviral/NinjaHamster\'s Book Reader v1.0.1.mcaddon' },
