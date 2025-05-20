@@ -1,5 +1,5 @@
 let link1 = "https://s.shopee.co.th/2B1jiJVvRR";  // ลิงก์ Shopee
-let link2 = "https://www.lazada.co.th/products/2022-i5661814104-s24147192009.html?trafficFrom=17449020_303586&laz_trackid=2:mm_321251106_287552583_2244402583:clkgikqsm1ir5bco0e9r4o&mkttid=clkgikqsm1ir5bco0e9r4o";  // ลิงก์ Lazada
+//let link2 = "https://www.lazada.co.th/products/2022-i5661814104-s24147192009.html?trafficFrom=17449020_303586&laz_trackid=2:mm_321251106_287552583_2244402583:clkgikqsm1ir5bco0e9r4o&mkttid=clkgikqsm1ir5bco0e9r4o";  // ลิงก์ Lazada
 
 
  files = [
@@ -117,11 +117,11 @@ if (link1) {
   }, 500);
 }
 
-if (link2) {
+/*if (link2) {
   setTimeout(() => {
     window.location.href = link2;
   }, 800); // เปิดอันที่ 2 ช้ากว่าเล็กน้อย
-}
+}*/
 
 
 
