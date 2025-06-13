@@ -3,16 +3,16 @@ let link1 = "https://s.shopee.co.th/2B1jiJVvRR";  // ลิงก์ Shopee
 
 
  files = [
-  { name: 'Item_Behaviors_Packs.mcpack', url: 'addon/surviral/Item_Behaviors_Packs.mcpack' },
-  { name: 'Item_Resources_Packs.mcpack', url: 'addon/surviral/Item_Resources_Packs.mcpack' },
-  { name: 'Kamii script (อนิเมชั่น).mcpack', url: 'addon/surviral/Kamii script (อนิเมชั่น).mcpack' },
-  { name: 'Roll Behavior (อนิเมชั่น).mcpack', url: 'addon/surviral/Roll Behavior (อนิเมชั่น).mcpack' },
-  { name: 'Roll Resource (อนิเมชั่น).mcpack', url: 'addon/surviral/Roll Resource (อนิเมชั่น).mcpack' },
-  { name: 'UI Queue (อนิเมชั่น).mcpack', url: 'addon/surviral/UI Queue (อนิเมชั่น).mcpack' },
-  { name: 'Authentic Dynamic Light v1.4.mcpack', url: 'addon/surviral/Authentic Dynamic Light v1.4.mcpack' },
-  { name: 'Sweep \'N Slash v1.5.0.mcaddon', url: 'addon/surviral/Sweep \'N Slash v1.5.0.mcaddon' },
-  { name: 'Better_Sounds.mcpack', url: 'addon/surviral/Better_Sounds.mcpack' },
-  { name: 'The_Better_First_Person.mcpack', url: 'addon/surviral/The_Better_First_Person.mcpack' }
+  { name: 'Item_Behaviors_Packs.mcpack', url: 'addon/Item_Behaviors_Packs.mcpack' },
+  { name: 'Item_Resources_Packs.mcpack', url: 'addon/Item_Resources_Packs.mcpack' },
+  { name: 'Kamii script (อนิเมชั่น).mcpack', url: 'addon/Kamii script (อนิเมชั่น).mcpack' },
+  { name: 'Roll Behavior (อนิเมชั่น).mcpack', url: 'addon/Roll Behavior (อนิเมชั่น).mcpack' },
+  { name: 'Roll Resource (อนิเมชั่น).mcpack', url: 'addon/Roll Resource (อนิเมชั่น).mcpack' },
+  { name: 'UI Queue (อนิเมชั่น).mcpack', url: 'addon/UI Queue (อนิเมชั่น).mcpack' },
+  { name: 'Authentic Dynamic Light v1.4.mcpack', url: 'addon/Authentic Dynamic Light v1.4.mcpack' },
+  { name: 'Sweep \'N Slash v1.5.0.mcaddon', url: 'addon/Sweep \'N Slash v1.5.0.mcaddon' },
+  { name: 'Better_Sounds.mcpack', url: 'addon/Better_Sounds.mcpack' },
+  { name: 'The_Better_First_Person.mcpack', url: 'addon/The_Better_First_Person.mcpack' }
 ];
 
 
