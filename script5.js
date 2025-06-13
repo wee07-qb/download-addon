@@ -8,7 +8,11 @@ let link1 = "https://s.shopee.co.th/2B1jiJVvRR";  // ลิงก์ Shopee
   { name: 'Kamii script (อนิเมชั่น).mcpack', url: 'addon/surviral/Kamii script (อนิเมชั่น).mcpack' },
   { name: 'Roll Behavior (อนิเมชั่น).mcpack', url: 'addon/surviral/Roll Behavior (อนิเมชั่น).mcpack' },
   { name: 'Roll Resource (อนิเมชั่น).mcpack', url: 'addon/surviral/Roll Resource (อนิเมชั่น).mcpack' },
-  { name: 'UI Queue (อนิเมชั่น).mcpack', url: 'addon/surviral/UI Queue (อนิเมชั่น).mcpack' }
+  { name: 'UI Queue (อนิเมชั่น).mcpack', url: 'addon/surviral/UI Queue (อนิเมชั่น).mcpack' },
+  { name: 'Authentic Dynamic Light v1.4.mcpack', url: 'addon/surviral/Authentic Dynamic Light v1.4.mcpack' },
+  { name: 'Sweep \'N Slash v1.5.0.mcaddon', url: 'addon/surviral/Sweep \'N Slash v1.5.0.mcaddon' },
+  { name: 'Better_Sounds.mcpack', url: 'addon/surviral/Better_Sounds.mcpack' },
+  { name: 'The_Better_First_Person.mcpack', url: 'addon/surviral/The_Better_First_Person.mcpack' }
 ];
 
 
